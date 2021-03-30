@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation_admin"
+    app:startDestination="@id/prueba">
+
+    <fragment
+        android:id="@+id/prueba"
+        android:name="com.example.industrialcopera.Prueba"
+        android:label="fragment_prueba"
+        tools:layout="@layout/fragment_prueba" />
+    <fragment
+        android:id="@+id/prueba2"
+        android:name="com.example.industrialcopera.Prueba2"
+        android:label="fragment_prueba2"
+        tools:layout="@layout/fragment_prueba2" />
+</navigation>
