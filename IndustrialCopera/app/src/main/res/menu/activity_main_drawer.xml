@@ -7,14 +7,35 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:title="Copera" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:icon="@drawable/noticias_ic"
+            android:title="Noticias" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:icon="@drawable/focos_ic"
+            android:title="Conciertos" />
+        <item
+            android:id="@+id/nav_home_aa"
+            android:icon="@drawable/bolsa_tienda_ic"
+            android:title="Tienda" />
+        <item
+            android:id="@+id/nav_gallery_aa"
+            android:icon="@drawable/coupon_ic"
+            android:title="Cupones" />
+        <item
+            android:id="@+id/nav_slideshowhh"
+            android:icon="@drawable/usuario_ic"
+            android:title="Mi perfil" />
+
+        <item
+            android:id="@+id/nav_homehh"
+            android:icon="@drawable/tickets_ic"
+            android:title="Mis entradas" />
+        <item
+            android:id="@+id/nav_gallerhhy"
+            android:icon="@drawable/camiseta_ic"
+            android:title="Mis compras" />
     </group>
 </menu>
