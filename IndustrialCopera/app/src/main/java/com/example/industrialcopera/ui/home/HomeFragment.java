@@ -1,9 +1,12 @@
 package com.example.industrialcopera.ui.home;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,7 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.industrialcopera.MainActivity;
 import com.example.industrialcopera.R;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class HomeFragment extends Fragment {
 
@@ -31,5 +37,33 @@ public class HomeFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    Button b;
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        b=(Button)view.findViewById(R.id.bt_salir_home);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                salir();
+            }
+        });
+    }
+
+    public void salir (){
+        SharedPreferences sp;
+        SharedPreferences.Editor spE;
+
+        sp=getContext().getSharedPreferences("discoteca",MODE_PRIVATE);
+        spE=sp.edit();
+
+        spE.putString("KEY","");
+        spE.putString("USER","");
+        spE.putBoolean("ADMIN",false);
+        spE.commit();
+        Intent intent=new Intent(getContext(), MainActivity.class);
+        startActivity(intent);
     }
 }

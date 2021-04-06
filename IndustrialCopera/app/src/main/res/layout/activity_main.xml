@@ -43,19 +43,23 @@
         android:id="@+id/b_iniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:onClick="entrar"
         android:text="Iniciar Sesión"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/et_inicio_usuarioG"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/et_inicio_usuarioG"
+        app:layout_constraintTop_toBottomOf="@+id/et_inicio_emailG"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/et_inicio_usuarioG"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginEnd="64dp"
         android:background="@color/fondoCalro"
         android:textColorHint="@color/letra"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,18 +81,16 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/et_inicio_contraG"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="96dp"
         android:background="@color/fondoCalro"
         android:textColorHint="@color/letra"
         app:boxStrokeColor="@color/color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="@+id/et_inicio_usuarioG"
+        app:layout_constraintStart_toStartOf="@+id/et_inicio_usuarioG"
+        app:layout_constraintTop_toBottomOf="@+id/et_inicio_usuarioG"
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/letra"
         app:startIconTint="@color/color">
@@ -105,5 +107,72 @@
             android:textColorLink="@color/color"
             android:textCursorDrawable="@color/color" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_inicio_contra2G"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/fondoCalro"
+        android:textColorHint="@color/letra"
+        android:visibility="gone"
+        app:boxStrokeColor="@color/color"
+        app:layout_constraintEnd_toEndOf="@+id/et_inicio_contraG"
+        app:layout_constraintStart_toStartOf="@+id/et_inicio_contraG"
+        app:layout_constraintTop_toBottomOf="@+id/et_inicio_contraG"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/letra"
+        app:startIconTint="@color/color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_inicio_contra2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Repita la Contraseña"
+            android:inputType="textPassword"
+            android:textColor="@color/letra"
+            android:textColorHighlight="@color/letra"
+            android:textColorHint="@color/color"
+            android:textColorLink="@color/color"
+            android:textCursorDrawable="@color/color" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_inicio_emailG"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/fondoCalro"
+        android:textColorHint="@color/letra"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/et_inicio_contraG"
+        app:layout_constraintStart_toStartOf="@+id/et_inicio_contraG"
+        app:layout_constraintTop_toBottomOf="@+id/et_inicio_contra2G"
+        app:passwordToggleEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_inicio_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electronico"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/letra"
+            android:textColorHighlight="@color/letra"
+            android:textColorHint="@color/color"
+            android:textColorLink="@color/color" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="actualizar"
+        android:text="@string/cambiarRegistrarse"
+        android:textColor="@color/letra"
+        app:layout_constraintEnd_toEndOf="@+id/et_inicio_contraG"
+        app:layout_constraintStart_toStartOf="@+id/et_inicio_contraG"
+        app:layout_constraintTop_toBottomOf="@+id/b_iniciar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

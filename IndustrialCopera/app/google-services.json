@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "700854218010",
+    "firebase_url": "https://industrial-copera-default-rtdb.firebaseio.com",
+    "project_id": "industrial-copera",
+    "storage_bucket": "industrial-copera.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700854218010:android:4ec28297864c0ff96790a3",
+        "android_client_info": {
+          "package_name": "com.example.industrialcopera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700854218010-5gsb39v9j2rehc6dlmk3dijm6ve0on03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARCDe4pRDCHoUQ0PYPSigtomkaEzTvibM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700854218010-5gsb39v9j2rehc6dlmk3dijm6ve0on03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

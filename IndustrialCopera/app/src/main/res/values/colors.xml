@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#EC54E9</color>
-    <color name="colorAccent">#82EC54</color>
+    <color name="colorPrimary">#1E1E1E</color>
+<!--    Barra superior Grande-->
+    <color name="colorAccent">#ffff00</color>
 
 
     <color name="colorPrimaryDark">#1E1E1E</color>
-<!--    Barra superior-->
+<!--    Barra superior superior-->
 
     <color name="fondoCalro">#3C3C3C</color>
     <color name="fondo">#1E1E1E</color>

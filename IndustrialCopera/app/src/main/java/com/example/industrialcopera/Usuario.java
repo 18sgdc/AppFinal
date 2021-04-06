@@ -1,5 +1,7 @@
 package com.example.industrialcopera;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -59,5 +61,23 @@ public class Usuario extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+    public void salirUser (View v){
+        SharedPreferences sp;
+        SharedPreferences.Editor spE;
+
+        sp=getSharedPreferences("tienda",MODE_PRIVATE);
+        spE=sp.edit();
+
+        spE.putString("KEY","");
+        spE.putString("USER","");
+        spE.putBoolean("ADMIN",false);
+        spE.commit();
+        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 }
