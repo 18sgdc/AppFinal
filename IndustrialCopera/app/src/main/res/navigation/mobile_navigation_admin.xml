@@ -40,4 +40,24 @@
         android:name="com.example.industrialcopera.Admin.Main"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/editarNoticia"
+        android:name="com.example.industrialcopera.Admin.editar.EditarNoticia"
+        android:label="fragment_editar_noticia"
+        tools:layout="@layout/fragment_editar_noticia" />
+    <fragment
+        android:id="@+id/editarConcierto"
+        android:name="com.example.industrialcopera.Admin.editar.EditarConcierto"
+        android:label="fragment_editar_concierto"
+        tools:layout="@layout/fragment_editar_concierto" />
+    <fragment
+        android:id="@+id/editarProducto"
+        android:name="com.example.industrialcopera.Admin.editar.EditarProducto"
+        android:label="fragment_editar_producto"
+        tools:layout="@layout/fragment_editar_producto" />
+    <fragment
+        android:id="@+id/editarCupon"
+        android:name="com.example.industrialcopera.Admin.editar.EditarCupon"
+        android:label="fragment_editar_cupon"
+        tools:layout="@layout/fragment_editar_cupon" />
 </navigation>

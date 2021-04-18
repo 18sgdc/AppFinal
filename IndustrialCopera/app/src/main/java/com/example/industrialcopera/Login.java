@@ -140,7 +140,11 @@ public class Login extends AppCompatActivity {
                             if(snapshot.hasChildren()){
 //                                et_nombre.setError(res.getString(R.string.error_repetido_sus));
                             }else {
-                                Usuario nuevo=new Usuario(nombre,contra,correo,false,false);
+//                                Usuario nuevo=new Usuario(nombre,contra,correo,false,false);
+                                Usuario nuevo=new Usuario();
+                                nuevo.setNombre(nombre);
+                                nuevo.setContraseña(contra);
+                                nuevo.setCorreo(correo);
                                 String id=ref.child("discoteca").child("usuarios").push().getKey();
                                 nuevo.setId(id);
                                 ref.child("discoteca").child("usuarios").child(id).setValue(nuevo);

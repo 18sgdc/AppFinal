@@ -1,29 +1,21 @@
-package com.example.industrialcopera.Tempmoral;
+package com.example.industrialcopera.Admin.editar;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.industrialcopera.Login;
 import com.example.industrialcopera.R;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Prueba#newInstance} factory method to
+ * Use the {@link EditarConcierto#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Prueba extends Fragment {
+public class EditarConcierto extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +26,7 @@ public class Prueba extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Prueba() {
+    public EditarConcierto() {
         // Required empty public constructor
     }
 
@@ -44,11 +36,11 @@ public class Prueba extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Prueba.
+     * @return A new instance of fragment EditarConcierto.
      */
     // TODO: Rename and change types and number of parameters
-    public static Prueba newInstance(String param1, String param2) {
-        Prueba fragment = new Prueba();
+    public static EditarConcierto newInstance(String param1, String param2) {
+        EditarConcierto fragment = new EditarConcierto();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,34 +61,6 @@ public class Prueba extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_prueba, container, false);
-    }
-
-    Button b;
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        b=(Button)view.findViewById(R.id.bt_salir);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                salirUsuario();
-            }
-        });
-    }
-
-    public void salirUsuario (){
-        SharedPreferences sp;
-        SharedPreferences.Editor spE;
-
-        sp=getContext().getSharedPreferences("discoteca",MODE_PRIVATE);
-        spE=sp.edit();
-
-        spE.putString("KEY","");
-        spE.putString("USER","");
-        spE.putBoolean("ADMIN",false);
-        spE.commit();
-        Intent intent=new Intent(getContext(), Login.class);
-        startActivity(intent);
+        return inflater.inflate(R.layout.fragment_editar_concierto, container, false);
     }
 }

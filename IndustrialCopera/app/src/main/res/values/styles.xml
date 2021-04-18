@@ -19,20 +19,22 @@
     <style name="BaseStyle" parent="@style/AppTheme.NoActionBar">
         <item name="android:colorBackground">@color/fondo</item>
 
+        <item name="android:textColor">@color/letra</item>
 
 
 
         <item name="colorPrimary">@color/colorAccent</item>
+<!--        Parte no segura   -->
 
-
-
-
-<!--        <item name="actionBarItemBackground">@color/prueba2</item>-->
-        <item name="android:textColor">@color/letra</item>
-        <item name="android:colorButtonNormal">@color/fondoClaro</item>
-        <item name="android:editTextColor">@color/prueba</item>
         <item name="android:editTextBackground">@color/fondoClaro</item>
+        <item name="android:colorButtonNormal">@color/fondoClaro</item>
 
+
+<!--        Parte de pruebasss      -->
+<!--        <item name="actionBarItemBackground">@color/prueba2</item>-->
+        <item name="android:editTextColor">@color/prueba</item>
+
+<!--        <item name="android:icon">@color/prueba2</item>-->
 
 
 

@@ -6,8 +6,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Copera" />
+            android:icon="@drawable/revert_ic"
+            android:title="Copera"/>
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/noticias_ic"
