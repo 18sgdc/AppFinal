@@ -20,13 +20,16 @@ public class Administrador extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    public NavController navController;
+    public FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab_admin);
+        fab = findViewById(R.id.fab_admin);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -42,7 +45,7 @@ public class Administrador extends AppCompatActivity {
                 R.id.main,R.id.noticias,R.id.conciertos,R.id.productos,R.id.cupones,R.id.notificaciones,R.id.resumen)
                 .setDrawerLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_admin);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_admin);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }

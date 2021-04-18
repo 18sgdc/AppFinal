@@ -9,6 +9,10 @@
             android:icon="@drawable/revert_ic"
             android:title="Info. Copera" />
         <item
+            android:id="@+id/noticias"
+            android:icon="@drawable/noticias_ic"
+            android:title="Noticias" />
+        <item
             android:id="@+id/conciertos"
             android:icon="@drawable/focos_ic"
             android:title="Conciertos" />
@@ -20,10 +24,6 @@
             android:id="@+id/cupones"
             android:icon="@drawable/coupon_ic"
             android:title="Cupones" />
-        <item
-            android:id="@+id/noticias"
-            android:icon="@drawable/noticias_ic"
-            android:title="Noticias" />
 
 <!--        Linea       -->
         <item

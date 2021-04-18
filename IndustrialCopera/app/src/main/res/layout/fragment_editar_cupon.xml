@@ -5,4 +5,99 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.editar.EditarCupon"/>
+    tools:context=".Admin.editar.EditarCupon">
+
+    <Switch
+        android:id="@+id/S_E_Cu_Concierto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:textOff="Producto"
+        android:textOn="Concierto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TI_E_Precio_Contenedor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/fondoClaro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/S_E_Cu_Concierto">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TI_E_Precio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio del cupon (Puntos)"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Switch
+        android:id="@+id/S_E_Cu_Valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Switch"
+        android:textOff="Porcentaje"
+        android:textOn="Valor Absoluto"
+        app:layout_constraintBottom_toBottomOf="@+id/TI_E_Cu_Valor_Contenedor"
+        app:layout_constraintEnd_toStartOf="@+id/TI_E_Cu_Valor_Contenedor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/TI_E_Precio_Contenedor"
+        app:layout_constraintTop_toTopOf="@+id/TI_E_Cu_Valor_Contenedor" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TI_E_Cu_Valor_Contenedor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/fondoClaro"
+        app:layout_constraintEnd_toEndOf="@+id/TI_E_Precio_Contenedor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/S_E_Cu_Valor"
+        app:layout_constraintTop_toBottomOf="@+id/TI_E_Precio_Contenedor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TI_E_Cu_Valor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Valor"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TI_E_Cu_Precio_Contenedor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/fondoClaro"
+        app:layout_constraintEnd_toEndOf="@+id/TI_E_Cu_Valor_Contenedor"
+        app:layout_constraintStart_toStartOf="@+id/S_E_Cu_Valor"
+        app:layout_constraintTop_toBottomOf="@+id/TI_E_Cu_Valor_Contenedor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TI_E_Cu_Precio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio minimo"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/B_E_Cupon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/TI_E_Cu_Precio_Contenedor"
+        app:layout_constraintStart_toStartOf="@+id/TI_E_Cu_Precio_Contenedor"
+        app:layout_constraintTop_toBottomOf="@+id/TI_E_Cu_Precio_Contenedor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,13 +2,17 @@ package com.example.industrialcopera.Admin;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.industrialcopera.Administrador;
 import com.example.industrialcopera.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,5 +66,21 @@ public class Productos extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_productos, container, false);
+    }
+
+    Administrador ma;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ma=(Administrador)getActivity();
+
+        ma.fab.show();
+        ma.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ma.navController.navigate(R.id.editarProducto);
+            }
+        });
     }
 }

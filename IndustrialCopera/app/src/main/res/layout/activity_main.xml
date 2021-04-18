@@ -56,7 +56,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_inicio_usuarioG"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
@@ -83,7 +83,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_inicio_contraG"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@color/fondoClaro"
         android:textColorHint="@color/letra"
@@ -111,7 +111,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_inicio_contra2G"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@color/fondoClaro"
         android:textColorHint="@color/letra"
@@ -140,7 +140,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_inicio_emailG"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@color/fondoClaro"
         android:textColorHint="@color/letra"
