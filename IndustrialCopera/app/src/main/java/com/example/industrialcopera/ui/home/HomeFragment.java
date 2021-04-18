@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.industrialcopera.MainActivity;
+import com.example.industrialcopera.Login;
 import com.example.industrialcopera.R;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         spE.putString("USER","");
         spE.putBoolean("ADMIN",false);
         spE.commit();
-        Intent intent=new Intent(getContext(), MainActivity.class);
+        Intent intent=new Intent(getContext(), Login.class);
         startActivity(intent);
     }
 }

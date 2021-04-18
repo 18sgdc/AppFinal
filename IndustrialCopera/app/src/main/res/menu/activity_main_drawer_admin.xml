@@ -5,16 +5,36 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/prueba"
+            android:id="@+id/main"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:title="Info. Copera" />
         <item
-            android:id="@+id/prueba2"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-<!--        <item-->
-<!--            android:id="@+id/nav_slideshow"-->
-<!--            android:icon="@drawable/ic_menu_slideshow"-->
-<!--            android:title="@string/menu_slideshow" />-->
+            android:id="@+id/conciertos"
+            android:icon="@drawable/focos_ic"
+            android:title="Conciertos" />
+        <item
+            android:id="@+id/productos"
+            android:icon="@drawable/bolsa_tienda_ic"
+            android:title="Productos" />
+        <item
+            android:id="@+id/cupones"
+            android:icon="@drawable/coupon_ic"
+            android:title="Cupones" />
+        <item
+            android:id="@+id/noticias"
+            android:icon="@drawable/noticias_ic"
+            android:title="Noticias" />
+
+<!--        Linea       -->
+        <item
+            android:id="@+id/notificaciones"
+            android:icon="@drawable/notification_ic"
+            android:title="Notificaciones" />
+        <item
+            android:id="@+id/resumen"
+            android:icon="@drawable/estadisticas_ic"
+            android:title="Resumen" />
+
+
     </group>
 </menu>

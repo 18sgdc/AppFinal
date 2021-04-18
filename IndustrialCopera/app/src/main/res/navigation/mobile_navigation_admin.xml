@@ -3,16 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation_admin"
-    app:startDestination="@id/prueba">
+    app:startDestination="@id/main">
 
     <fragment
-        android:id="@+id/prueba"
-        android:name="com.example.industrialcopera.Prueba"
-        android:label="fragment_prueba"
-        tools:layout="@layout/fragment_prueba" />
+        android:id="@+id/conciertos"
+        android:name="com.example.industrialcopera.Admin.Conciertos"
+        android:label="fragment_conciertos"
+        tools:layout="@layout/fragment_conciertos" />
     <fragment
-        android:id="@+id/prueba2"
-        android:name="com.example.industrialcopera.Prueba2"
-        android:label="fragment_prueba2"
-        tools:layout="@layout/fragment_prueba2" />
+        android:id="@+id/productos"
+        android:name="com.example.industrialcopera.Admin.Productos"
+        android:label="fragment_productos"
+        tools:layout="@layout/fragment_productos" />
+    <fragment
+        android:id="@+id/cupones"
+        android:name="com.example.industrialcopera.Admin.Cupones"
+        android:label="fragment_cupones"
+        tools:layout="@layout/fragment_cupones" />
+    <fragment
+        android:id="@+id/noticias"
+        android:name="com.example.industrialcopera.Admin.Noticias"
+        android:label="fragment_noticias"
+        tools:layout="@layout/fragment_noticias" />
+    <fragment
+        android:id="@+id/notificaciones"
+        android:name="com.example.industrialcopera.Admin.Notificaciones"
+        android:label="fragment_notificaciones"
+        tools:layout="@layout/fragment_notificaciones" />
+    <fragment
+        android:id="@+id/resumen"
+        android:name="com.example.industrialcopera.Admin.Resumen"
+        android:label="fragment_resumen"
+        tools:layout="@layout/fragment_resumen" />
+    <fragment
+        android:id="@+id/main"
+        android:name="com.example.industrialcopera.Admin.Main"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>

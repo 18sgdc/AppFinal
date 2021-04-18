@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".MainActivity">
+    tools:context=".Login">
 
     <Button
         android:id="@+id/User"
@@ -60,7 +60,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
-        android:background="@color/fondoCalro"
+        android:background="@color/fondoClaro"
         android:textColorHint="@color/letra"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/fondoCalro"
+        android:background="@color/fondoClaro"
         android:textColorHint="@color/letra"
         app:boxStrokeColor="@color/color"
         app:layout_constraintEnd_toEndOf="@+id/et_inicio_usuarioG"
@@ -113,7 +113,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/fondoCalro"
+        android:background="@color/fondoClaro"
         android:textColorHint="@color/letra"
         android:visibility="gone"
         app:boxStrokeColor="@color/color"
@@ -142,7 +142,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/fondoCalro"
+        android:background="@color/fondoClaro"
         android:textColorHint="@color/letra"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/et_inicio_contraG"

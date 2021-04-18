@@ -27,7 +27,7 @@ import com.google.firebase.storage.StorageReference;
 
 import static com.basgeekball.awesomevalidation.ValidationStyle.BASIC;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     EditText et_nombre,et_contra,et_contra2,et_correo;
     Button b_inicio;

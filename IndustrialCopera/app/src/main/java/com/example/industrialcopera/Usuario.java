@@ -77,7 +77,7 @@ public class Usuario extends AppCompatActivity {
         spE.putString("USER","");
         spE.putBoolean("ADMIN",false);
         spE.commit();
-        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent=new Intent(getApplicationContext(), Login.class);
         startActivity(intent);
     }
 }
