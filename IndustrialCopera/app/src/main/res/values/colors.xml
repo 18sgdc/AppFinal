@@ -12,6 +12,7 @@
     <color name="fondo">#1E1E1E</color>
     <color name="fondoOscuro">#000000</color>
     <color name="letra">#f1f1f1</color>
+    <color name="letra2">#B4B4B4</color>
     <color name="color">#ffff00</color>
     <color name="hint_foreground_material_color">#ffff00</color>
     <color name="prueba">#B030E6</color>

@@ -8,7 +8,7 @@
     tools:context=".Admin.editar.EditarCupon">
 
     <Switch
-        android:id="@+id/S_E_Cu_Concierto"
+        android:id="@+id/SW_E_Cu_Concierto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -19,27 +19,50 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/TI_E_Precio_Contenedor"
+        android:id="@+id/TI_E_Cu_Precio_Contenedor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/fondoClaro"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/TI_E_Cu_Stock_Contenedor"
+        app:layout_constraintHorizontal_weight="0.7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/S_E_Cu_Concierto">
+        app:layout_constraintTop_toBottomOf="@+id/SW_E_Cu_Concierto">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/TI_E_Precio"
+            android:id="@+id/TI_E_Cu_Precio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Precio del cupon (Puntos)"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TI_E_Cu_Stock_Contenedor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/fondoClaro"
+        app:layout_constraintBottom_toBottomOf="@+id/TI_E_Cu_Precio_Contenedor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="0.30"
+        app:layout_constraintStart_toEndOf="@+id/TI_E_Cu_Precio_Contenedor"
+        app:layout_constraintTop_toTopOf="@+id/TI_E_Cu_Precio_Contenedor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TI_E_Cu_Stock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Stock"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Switch
-        android:id="@+id/S_E_Cu_Valor"
+        android:id="@+id/SW_E_Cu_Valor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -49,7 +72,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/TI_E_Cu_Valor_Contenedor"
         app:layout_constraintEnd_toStartOf="@+id/TI_E_Cu_Valor_Contenedor"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/TI_E_Precio_Contenedor"
+        app:layout_constraintStart_toStartOf="@+id/TI_E_Cu_Precio_Contenedor"
         app:layout_constraintTop_toTopOf="@+id/TI_E_Cu_Valor_Contenedor" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -59,10 +82,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@color/fondoClaro"
-        app:layout_constraintEnd_toEndOf="@+id/TI_E_Precio_Contenedor"
+        app:layout_constraintEnd_toEndOf="@+id/TI_E_Cu_Stock_Contenedor"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/S_E_Cu_Valor"
-        app:layout_constraintTop_toBottomOf="@+id/TI_E_Precio_Contenedor">
+        app:layout_constraintStart_toEndOf="@+id/SW_E_Cu_Valor"
+        app:layout_constraintTop_toBottomOf="@+id/TI_E_Cu_Precio_Contenedor">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/TI_E_Cu_Valor"
@@ -73,17 +96,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/TI_E_Cu_Precio_Contenedor"
+        android:id="@+id/TI_E_Cu_Precio_Min_Contenedor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/fondoClaro"
         app:layout_constraintEnd_toEndOf="@+id/TI_E_Cu_Valor_Contenedor"
-        app:layout_constraintStart_toStartOf="@+id/S_E_Cu_Valor"
+        app:layout_constraintStart_toStartOf="@+id/SW_E_Cu_Valor"
         app:layout_constraintTop_toBottomOf="@+id/TI_E_Cu_Valor_Contenedor">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/TI_E_Cu_Precio"
+            android:id="@+id/TI_E_Cu_Precio_Min"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Precio minimo"
@@ -96,8 +119,8 @@
         android:layout_height="wrap_content"
         android:text="Crear"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/TI_E_Cu_Precio_Contenedor"
-        app:layout_constraintStart_toStartOf="@+id/TI_E_Cu_Precio_Contenedor"
-        app:layout_constraintTop_toBottomOf="@+id/TI_E_Cu_Precio_Contenedor" />
+        app:layout_constraintEnd_toEndOf="@+id/TI_E_Cu_Precio_Min_Contenedor"
+        app:layout_constraintStart_toStartOf="@+id/TI_E_Cu_Precio_Min_Contenedor"
+        app:layout_constraintTop_toBottomOf="@+id/TI_E_Cu_Precio_Min_Contenedor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

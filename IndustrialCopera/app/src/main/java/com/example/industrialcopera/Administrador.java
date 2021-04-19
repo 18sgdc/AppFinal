@@ -1,5 +1,6 @@
 package com.example.industrialcopera;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -15,6 +16,10 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class Administrador extends AppCompatActivity {
 
@@ -22,6 +27,9 @@ public class Administrador extends AppCompatActivity {
 
     public NavController navController;
     public FloatingActionButton fab;
+    public Context context;
+    public DatabaseReference ref;
+    public StorageReference sto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,12 @@ public class Administrador extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         fab = findViewById(R.id.fab_admin);
+        context=getApplicationContext();
+        ref= FirebaseDatabase.getInstance().getReference();
+        sto= FirebaseStorage.getInstance().getReference();
+
+
+
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

@@ -5,4 +5,125 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User.Perfil"/>
+    tools:context=".User.Perfil">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/user"
+        app:layout_constraintDimensionRatio="w,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_Datos"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="64dp"
+        android:background="@color/fondoClaro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Mis datos"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/right_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_Entradas"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:background="@color/fondoClaro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CL_Datos">
+
+        <TextView
+            android:id="@+id/textView3a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Mis entradas"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView5a"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/right_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3a"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView3a" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_Compras"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:background="@color/fondoClaro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CL_Entradas">
+
+        <TextView
+            android:id="@+id/textView3b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Mis compras"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView5b"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/right_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3b"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView3b" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

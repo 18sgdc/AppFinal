@@ -1,27 +1,29 @@
 package com.example.industrialcopera.clases;
 
 public class Cupon {
-    private String id,caducidad;
-    private int precio; //int por que son puntos
+    private String id;
+    private int precio, stock; //int por que son puntos
     private double valor, min;
-    private boolean concierto;
+    private boolean concierto, porcentaje;
 
-    public Cupon(String caducidad, int precio, double valor, double min, boolean concierto) {
+    public Cupon( boolean concierto, int precio, int stock,boolean porcentaje, double valor, double min) {
         this.id = "";
-        this.caducidad = caducidad;
         this.precio = precio;
+        this.stock = stock;
         this.valor = valor;
         this.min = min;
         this.concierto = concierto;
+        this.porcentaje = porcentaje;
     }
 
     public Cupon() {
         this.id = "";
-        this.caducidad = "";
         this.precio = 0;
+        this.stock = 0;
         this.valor = 0;
         this.min = 0;
         this.concierto = true;
+        this.porcentaje = true;
     }
 
     public String getId() {
@@ -30,14 +32,6 @@ public class Cupon {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getCaducidad() {
-        return caducidad;
-    }
-
-    public void setCaducidad(String caducidad) {
-        this.caducidad = caducidad;
     }
 
     public int getPrecio() {
@@ -70,5 +64,21 @@ public class Cupon {
 
     public void setConcierto(boolean concierto) {
         this.concierto = concierto;
+    }
+
+    public boolean isPorcentaje() {
+        return porcentaje;
+    }
+
+    public void setPorcentaje(boolean porcentaje) {
+        this.porcentaje = porcentaje;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 }

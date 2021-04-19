@@ -8,7 +8,7 @@
     tools:context=".Admin.editar.EditarConcierto">
 
     <ImageView
-        android:id="@+id/I_E_Co_anadir"
+        android:id="@+id/IV_E_Co_Anadir"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/TI_T_Co_Artista_Contenedor"
+        android:id="@+id/TI_E_Co_Artista_Contenedor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -28,10 +28,10 @@
         android:background="@color/fondoClaro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/I_E_Co_anadir">
+        app:layout_constraintTop_toBottomOf="@+id/IV_E_Co_Anadir">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/TI_T_Co_Artista"
+            android:id="@+id/TI_E_Co_Artista"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Artista" />
@@ -46,8 +46,8 @@
         android:background="@color/fondoClaro"
         app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/TI_T_Co_Artista_Contenedor"
-        app:layout_constraintTop_toBottomOf="@+id/TI_T_Co_Artista_Contenedor">
+        app:layout_constraintStart_toStartOf="@+id/TI_E_Co_Artista_Contenedor"
+        app:layout_constraintTop_toBottomOf="@+id/TI_E_Co_Artista_Contenedor">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -62,7 +62,7 @@
         android:layout_marginStart="16dp"
         android:background="@color/fondoClaro"
         app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
-        app:layout_constraintEnd_toEndOf="@+id/TI_T_Co_Artista_Contenedor"
+        app:layout_constraintEnd_toEndOf="@+id/TI_E_Co_Artista_Contenedor"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
         app:layout_constraintTop_toTopOf="@+id/textInputLayout2">
@@ -74,41 +74,41 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/TV_T_Co_Vendidas"
+        android:id="@+id/TV_E_Co_Vendidas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vendidas: "
-        app:layout_constraintBottom_toBottomOf="@+id/TV_T_Co_Nvendidas"
-        app:layout_constraintEnd_toStartOf="@+id/TV_T_Co_Nvendidas"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_E_Co_Nvendidas"
+        app:layout_constraintEnd_toStartOf="@+id/TV_E_Co_Nvendidas"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/TI_T_Co_Precio_Contenedor"
-        app:layout_constraintTop_toTopOf="@+id/TV_T_Co_Nvendidas" />
+        app:layout_constraintStart_toStartOf="@+id/TI_E_Co_Precio_Contenedor"
+        app:layout_constraintTop_toTopOf="@+id/TV_E_Co_Nvendidas" />
 
     <TextView
-        android:id="@+id/TV_T_Co_Nvendidas"
+        android:id="@+id/TV_E_Co_Nvendidas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:text="0"
-        app:layout_constraintBottom_toBottomOf="@+id/TI_T_Co_Aforo_Contenedor"
-        app:layout_constraintEnd_toStartOf="@+id/TI_T_Co_Aforo_Contenedor"
+        app:layout_constraintBottom_toBottomOf="@+id/TI_E_Co_Aforo_Contenedor"
+        app:layout_constraintEnd_toStartOf="@+id/TI_E_Co_Aforo_Contenedor"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/TV_T_Co_Vendidas"
-        app:layout_constraintTop_toTopOf="@+id/TI_T_Co_Aforo_Contenedor" />
+        app:layout_constraintStart_toEndOf="@+id/TV_E_Co_Vendidas"
+        app:layout_constraintTop_toTopOf="@+id/TI_E_Co_Aforo_Contenedor" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/TI_T_Co_Aforo_Contenedor"
+        android:id="@+id/TI_E_Co_Aforo_Contenedor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/fondoClaro"
-        app:layout_constraintEnd_toEndOf="@+id/TI_T_Co_Precio_Contenedor"
+        app:layout_constraintEnd_toEndOf="@+id/TI_E_Co_Precio_Contenedor"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/TV_T_Co_Nvendidas"
-        app:layout_constraintTop_toBottomOf="@+id/TI_T_Co_Precio_Contenedor">
+        app:layout_constraintStart_toEndOf="@+id/TV_E_Co_Nvendidas"
+        app:layout_constraintTop_toBottomOf="@+id/TI_E_Co_Precio_Contenedor">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/TI_T_Co_Aforo"
+            android:id="@+id/TI_E_Co_Aforo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Aforo"
@@ -116,7 +116,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/TI_T_Co_Precio_Contenedor"
+        android:id="@+id/TI_E_Co_Precio_Contenedor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -126,7 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/TI_T_Co_Precio"
+            android:id="@+id/TI_E_Co_Precio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Precio"
@@ -141,6 +141,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TI_T_Co_Aforo_Contenedor" />
+        app:layout_constraintTop_toBottomOf="@+id/TI_E_Co_Aforo_Contenedor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,13 +2,24 @@ package com.example.industrialcopera.Admin.editar;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
 
+import com.example.industrialcopera.Administrador;
 import com.example.industrialcopera.R;
+import com.example.industrialcopera.clases.Cupon;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,5 +73,69 @@ public class EditarCupon extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_editar_cupon, container, false);
+    }
+
+    EditText et_precio,et_stock,et_valor, et_precio_min;
+    Switch sw_concierto, sw_porcentaje;
+//    String artista,descripcion;
+    Boolean concierto,porcentaje;
+    Double valor,precio_min;
+    int precio,stock;
+    Button button;
+    Administrador ma;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ma=(Administrador)getActivity();
+        ma.fab.hide();
+
+
+        et_precio=(EditText)view.findViewById(R.id.TI_E_Cu_Precio);
+        et_stock=(EditText)view.findViewById(R.id.TI_E_Cu_Stock);
+        et_precio_min=(EditText)view.findViewById(R.id.TI_E_Cu_Precio_Min);
+        et_valor=(EditText)view.findViewById(R.id.TI_E_Cu_Valor);
+        sw_concierto=(Switch)view.findViewById(R.id.SW_E_Cu_Concierto);
+        sw_porcentaje=(Switch)view.findViewById(R.id.SW_E_Cu_Valor);
+        button=(Button)view.findViewById(R.id.B_E_Concierto);
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enviar();
+            }
+        });
+
+
+    }
+
+    public void enviar(){
+        precio=Integer.parseInt(et_precio.getText().toString());
+        stock=Integer.parseInt(et_stock.getText().toString());
+        valor=Double.parseDouble(et_valor.getText().toString());
+        precio_min=Double.parseDouble(et_precio_min.getText().toString());
+
+
+//            if(comprobar()) //Taqmbier comprobar valor unico
+//        {
+            ma.ref.child("discoteca").child("cupon")
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            Cupon nuevo=new Cupon(concierto,precio,stock,porcentaje,valor,precio_min);
+                            String id=ma.ref.child("discoteca").child("cupon").push().getKey();
+                            nuevo.setId(id);
+                            ma.ref.child("discoteca").child("cupon").child(id).setValue(nuevo);
+                            Toast.makeText(ma.context, "Cupon añadido con exito", Toast.LENGTH_SHORT).show();
+                            ma.navController.navigate(R.id.conciertos);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+//        }
     }
 }
