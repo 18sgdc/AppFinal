@@ -22,7 +22,7 @@
         <item name="android:textColor">@color/letra</item>
         <item name="android:editTextColor">@color/letra</item>
         <item name="android:textColorHint">@color/letra</item>
-        <item name="android:switchStyle">@color/letra</item>
+        <item name="itemTextColor">@color/letra</item>
 
 
 
@@ -37,6 +37,7 @@
 <!--        <item name="actionBarItemBackground">@color/prueba2</item>-->
 
 <!--        <item name="android:icon">@color/prueba2</item>-->
+<!--        <item name="android:switchStyle">@color/letra</item>-->
 
 
 

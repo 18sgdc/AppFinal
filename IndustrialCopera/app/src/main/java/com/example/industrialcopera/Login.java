@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
                                 if(nuevo.isAdmin()){
                                     intent=new Intent(getApplicationContext(), Administrador.class);
                                 }else{
-                                    intent=new Intent(getApplicationContext(), com.example.industrialcopera.Usuario.class);
+                                    intent=new Intent(getApplicationContext(), ActivityUsuario.class);
                                 }
                                 startActivity(intent);
                             }else{
@@ -138,7 +138,7 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.hasChildren()){
-//                                et_nombre.setError(res.getString(R.string.error_repetido_sus));
+                                et_nombre.setError(res.getString(R.string.error_repetido_sus));
                             }else {
 //                                Usuario nuevo=new Usuario(nombre,contra,correo,false,false);
                                 Usuario nuevo=new Usuario();
@@ -159,7 +159,7 @@ public class Login extends AppCompatActivity {
                                 if(nuevo.isAdmin()){
                                     intent=new Intent(getApplicationContext(), Administrador.class);
                                 }else{
-                                    intent=new Intent(getApplicationContext(), com.example.industrialcopera.Usuario.class);
+                                    intent=new Intent(getApplicationContext(), ActivityUsuario.class);
                                 }
                                 startActivity(intent);
                             }
@@ -194,7 +194,7 @@ public class Login extends AppCompatActivity {
         spE=sp.edit();
         if(!sp.getString("KEY","").equals("")){
             if(!sp.getBoolean("ADMIN",true)){
-                Intent intent=new Intent(getApplicationContext(), com.example.industrialcopera.Usuario.class);
+                Intent intent=new Intent(getApplicationContext(), ActivityUsuario.class);
                 startActivity(intent);
             }else{
                 Intent intent=new Intent(getApplicationContext(),Administrador.class);

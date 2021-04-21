@@ -85,7 +85,7 @@ public class EditarConcierto extends Fragment {
     }
 
     EditText et_artista,et_fecha,et_hora,et_precio,et_aforo;
-    String artista,descripcion;
+    String artista,descripcion,fecha,hora;
     Double precio;
     int aforo;
     ImageView iv_foto;
@@ -102,10 +102,14 @@ public class EditarConcierto extends Fragment {
 
         et_artista=(EditText)view.findViewById(R.id.TI_E_Co_Artista);
 //        FECHA Y HORA
+        et_fecha=(EditText)view.findViewById(R.id.TI_E_Co_Fecha);
+        et_hora=(EditText)view.findViewById(R.id.TI_E_Co_Hora);
+//        FECHA Y HORA
         et_precio=(EditText)view.findViewById(R.id.TI_E_Co_Precio);
         et_aforo=(EditText)view.findViewById(R.id.TI_E_Co_Aforo);
         iv_foto=(ImageView)view.findViewById(R.id.IV_E_Co_Anadir);
         button=(Button)view.findViewById(R.id.B_E_Concierto);
+
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -145,6 +149,9 @@ public class EditarConcierto extends Fragment {
     public void enviar(){
         artista=et_artista.getText().toString();
 //        FECHA Y HORA
+        fecha=et_fecha.getText().toString();
+        hora=et_hora.getText().toString();
+//        FECHA Y HORA
         precio=Double.parseDouble(et_precio.getText().toString());
         aforo=Integer.parseInt(et_aforo.getText().toString());
 
@@ -168,7 +175,7 @@ public class EditarConcierto extends Fragment {
 //                                }
                             }
                             if(correcto){
-                                Concierto nuevo=new Concierto(artista,"fecha","hora",descripcion,precio,0,aforo);
+                                Concierto nuevo=new Concierto(artista,fecha,hora,descripcion,precio,0,aforo);
                                 String id=ma.ref.child("discoteca").child("concierto").push().getKey();
                                 nuevo.setId(id);
                                 ma.ref.child("discoteca").child("concierto").child(id).setValue(nuevo);

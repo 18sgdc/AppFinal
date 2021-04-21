@@ -97,7 +97,7 @@ public class EditarCupon extends Fragment {
         et_valor=(EditText)view.findViewById(R.id.TI_E_Cu_Valor);
         sw_concierto=(Switch)view.findViewById(R.id.SW_E_Cu_Concierto);
         sw_porcentaje=(Switch)view.findViewById(R.id.SW_E_Cu_Valor);
-        button=(Button)view.findViewById(R.id.B_E_Concierto);
+        button=(Button)view.findViewById(R.id.B_E_Cupon);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +115,8 @@ public class EditarCupon extends Fragment {
         stock=Integer.parseInt(et_stock.getText().toString());
         valor=Double.parseDouble(et_valor.getText().toString());
         precio_min=Double.parseDouble(et_precio_min.getText().toString());
+        porcentaje=sw_porcentaje.isChecked();
+        concierto=sw_concierto.isChecked();
 
 
 //            if(comprobar()) //Taqmbier comprobar valor unico
@@ -128,7 +130,7 @@ public class EditarCupon extends Fragment {
                             nuevo.setId(id);
                             ma.ref.child("discoteca").child("cupon").child(id).setValue(nuevo);
                             Toast.makeText(ma.context, "Cupon añadido con exito", Toast.LENGTH_SHORT).show();
-                            ma.navController.navigate(R.id.conciertos);
+                            ma.navController.navigate(R.id.cupones);
                         }
 
                         @Override

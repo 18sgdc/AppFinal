@@ -27,9 +27,4 @@
         android:name="com.example.industrialcopera.User.Perfil"
         android:label="fragment_perfil"
         tools:layout="@layout/fragment_perfil" />
-    <fragment
-        android:id="@+id/misDatos"
-        android:name="com.example.industrialcopera.MisDatos"
-        android:label="fragment_mis_datos"
-        tools:layout="@layout/fragment_mis_datos" />
 </navigation>

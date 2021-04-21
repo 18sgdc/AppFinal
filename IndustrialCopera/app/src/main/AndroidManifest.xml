@@ -21,7 +21,7 @@
             android:label="@string/title_activity_administrador"
             android:theme="@style/BaseStyle"/>
         <activity
-            android:name=".Usuario"
+            android:name=".ActivityUsuario"
             android:label="@string/title_activity_usuario"
             android:theme="@style/BaseStyle" />
 

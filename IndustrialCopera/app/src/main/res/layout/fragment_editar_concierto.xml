@@ -50,9 +50,11 @@
         app:layout_constraintTop_toBottomOf="@+id/TI_E_Co_Artista_Contenedor">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TI_E_Co_Fecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Dia" />
+            android:hint="Dia"
+            android:inputType="date" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -68,9 +70,11 @@
         app:layout_constraintTop_toTopOf="@+id/textInputLayout2">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TI_E_Co_Hora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hora" />
+            android:hint="hora"
+            android:inputType="time" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

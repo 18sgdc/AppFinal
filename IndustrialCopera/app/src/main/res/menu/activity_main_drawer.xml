@@ -25,7 +25,7 @@
             android:icon="@drawable/coupon_ic"
             android:title="Cupones" />
         <item
-            android:id="@+id/nav_slideshowhh"
+            android:id="@+id/perfil"
             android:icon="@drawable/usuario_ic"
             android:title="Mi perfil" />
 

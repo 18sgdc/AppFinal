@@ -79,6 +79,12 @@ public class Administrador extends AppCompatActivity {
     }
 
 
+//    public void mostrarCalendario(){
+//        Calendario add=new Calendario();
+//        add.show(getSupportFragmentManager(), "Add");
+    // TODO: 21/04/2021 Calendario 
+//    }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
