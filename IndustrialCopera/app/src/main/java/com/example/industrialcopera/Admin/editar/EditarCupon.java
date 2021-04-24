@@ -118,26 +118,28 @@ public class EditarCupon extends Fragment {
         porcentaje=sw_porcentaje.isChecked();
         concierto=sw_concierto.isChecked();
 
+        Cupon nuevo=new Cupon(concierto,precio,stock,porcentaje,valor,precio_min);
+        String id=ma.ref.child("discoteca").child("cupon").push().getKey();
+        nuevo.setId(id);
+        ma.ref.child("discoteca").child("cupon").child(id).setValue(nuevo);
+        Toast.makeText(ma.context, "Cupon añadido con exito", Toast.LENGTH_SHORT).show();
+        ma.navController.navigate(R.id.cupones);
+
 
 //            if(comprobar()) //Taqmbier comprobar valor unico
 //        {
-            ma.ref.child("discoteca").child("cupon")
-                    .addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Cupon nuevo=new Cupon(concierto,precio,stock,porcentaje,valor,precio_min);
-                            String id=ma.ref.child("discoteca").child("cupon").push().getKey();
-                            nuevo.setId(id);
-                            ma.ref.child("discoteca").child("cupon").child(id).setValue(nuevo);
-                            Toast.makeText(ma.context, "Cupon añadido con exito", Toast.LENGTH_SHORT).show();
-                            ma.navController.navigate(R.id.cupones);
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+//            ma.ref.child("discoteca").child("cupon")
+//                    .addValueEventListener(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    });
 //        }
     }
 }

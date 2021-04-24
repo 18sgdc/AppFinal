@@ -17,7 +17,7 @@
     <string name="vacio">No puedes dejar este campo vacio</string>
     <string name="error_correo">Correo electronico erroneo</string>
     <string name="error_contra2">Las contraseñas no coinciden</string>
-    <string name="error_repetido_sus">Ese usuario a existe</string>
+    <string name="error_repetido_correo">Ese correo ya esta registrado</string>
     <string name="error_inicio">Contraseña o Usuario incorrecto</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
     <string name="registrarse">Registrarse</string>

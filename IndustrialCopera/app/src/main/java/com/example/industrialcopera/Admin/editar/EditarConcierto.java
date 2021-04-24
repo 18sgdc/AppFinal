@@ -166,6 +166,7 @@ public class EditarConcierto extends Fragment {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             boolean correcto=true;
                             if(snapshot.hasChildren()){
+                                correcto=false;
 //                           COMPORBAR FECHA  (SOLO FECHA PARA QUE NO HAYA 2 DEL MISMO EL MISMO DIA)
 //                                for(DataSnapshot hijo:snapshot.getChildren()){
 //                                    Concierto pojo_producto=hijo.getValue(Concierto.class);

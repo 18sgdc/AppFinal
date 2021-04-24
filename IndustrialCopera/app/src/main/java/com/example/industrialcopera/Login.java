@@ -29,7 +29,10 @@ import static com.basgeekball.awesomevalidation.ValidationStyle.BASIC;
 
 public class Login extends AppCompatActivity {
 
-    EditText et_nombre,et_contra,et_contra2,et_correo;
+//    EditText et_nombre,et_contra2
+    EditText et_contra,et_correo;
+    String correo, contra;
+
     Button b_inicio;
     DatabaseReference ref;
     StorageReference sto;
@@ -49,9 +52,9 @@ public class Login extends AppCompatActivity {
 
         iniciado();
         res=getResources();
-        et_nombre=(EditText) findViewById(R.id.et_inicio_usuario);
+//        et_nombre=(EditText) findViewById(R.id.et_inicio_usuario);
         et_contra=(EditText) findViewById(R.id.et_inicio_contra);
-        et_contra2=(EditText) findViewById(R.id.et_inicio_contra2);
+//        et_contra2=(EditText) findViewById(R.id.et_inicio_contra2);
         et_correo=(EditText) findViewById(R.id.et_inicio_email);
         b_inicio=(Button)findViewById(R.id.b_iniciar);
 
@@ -71,19 +74,20 @@ public class Login extends AppCompatActivity {
     }
 
     public void iniciar(){
-        String usuario=et_nombre.getText().toString().trim();
-        final String contra=et_contra.getText().toString().trim();
+//        String usuario=et_nombre.getText().toString().trim();
+        correo=et_correo.getText().toString().trim();
+        contra=et_contra.getText().toString().trim();
 
 
-        ref.child("discoteca").child("usuarios").orderByChild("nombre").equalTo(usuario)
+        ref.child("discoteca").child("usuarios").orderByChild("correo").equalTo(correo)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.hasChildren()){
                             DataSnapshot hijo=snapshot.getChildren().iterator().next();
-                            String id=hijo.getKey();
+//                            String id=hijo.getKey();
                             Usuario nuevo=hijo.getValue(Usuario.class);
-                            nuevo.setId(id);
+//                            nuevo.setId(id);
                             if(nuevo.getContraseña().equals(contra)){
                                 spE.putString("KEY",nuevo.getId());
                                 spE.putString("USER",nuevo.getNombre());
@@ -99,6 +103,7 @@ public class Login extends AppCompatActivity {
                             }else{
 //                                et_nombre.setError(res.getString(R.string.error_inicio));
 //                                et_contra.setError(res.getString(R.string.error_inicio));
+                                // TODO: 23/04/2021 Completar los errores
                             }
                         }else{
 //                            et_nombre.setError(res.getString(R.string.error_inicio));
@@ -114,48 +119,51 @@ public class Login extends AppCompatActivity {
     }
 
     public void Registrarse(){
-        final String nombre=et_nombre.getText().toString();
-        final String contra=et_contra.getText().toString();
-        final String contra2=et_contra2.getText().toString();
-        final String correo=et_correo.getText().toString();
+//        final String nombre=et_nombre.getText().toString();
+//        final String contra2=et_contra2.getText().toString();
+        correo=et_correo.getText().toString();
+        contra=et_contra.getText().toString();
 
         final AwesomeValidation mAwesomeValidation = new AwesomeValidation(BASIC);
         mAwesomeValidation.addValidation(
                 this, R.id.et_inicio_email, android.util.Patterns.EMAIL_ADDRESS, R.string.error_correo);
 
 
-        if(nombre.equals("")){
-            et_nombre.setError(res.getString(R.string.vacio));
-        }else if(contra.equals("")){
-            et_contra.setError(res.getString(R.string.vacio));
-        }else if(contra2.equals("")){
-            et_contra2.setError(res.getString(R.string.vacio));
-        }else if(!contra.equals(contra2)) {
-            et_contra2.setError(res.getString(R.string.error_contra2));
-        }else{
-            ref.child("discoteca").child("usuarios").orderByChild("nombre").equalTo(nombre)
+//        if(nombre.equals("")){
+//            et_nombre.setError(res.getString(R.string.vacio));
+//        }else if(contra.equals("")){
+//            et_contra.setError(res.getString(R.string.vacio));
+//        }else if(contra2.equals("")){
+//            et_contra2.setError(res.getString(R.string.vacio));
+//        }else if(!contra.equals(contra2)) {
+//            et_contra2.setError(res.getString(R.string.error_contra2));
+//        }else{
+        // TODO: 23/04/2021 Comprobaciones
+            ref.child("discoteca").child("usuarios").orderByChild("correo").equalTo(correo)
                     .addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.hasChildren()){
-                                et_nombre.setError(res.getString(R.string.error_repetido_sus));
+                                et_correo.setError(res.getString(R.string.error_repetido_correo));
                             }else {
 //                                Usuario nuevo=new Usuario(nombre,contra,correo,false,false);
                                 Usuario nuevo=new Usuario();
-                                nuevo.setNombre(nombre);
-                                nuevo.setContraseña(contra);
+//                                nuevo.setNombre(nombre);
                                 nuevo.setCorreo(correo);
+                                nuevo.setContraseña(contra);
                                 String id=ref.child("discoteca").child("usuarios").push().getKey();
                                 nuevo.setId(id);
                                 ref.child("discoteca").child("usuarios").child(id).setValue(nuevo);
                                 Uri foto_url= Uri.parse("R.drawable.user");
+
+
                                 sto.child("discoteca").child("usuarios").child(id).putFile(foto_url);
 
                                 spE.putString("KEY",nuevo.getId());
                                 spE.putString("USER",nuevo.getNombre());
                                 spE.putBoolean("ADMIN",nuevo.isAdmin());
                                 spE.commit();
-                                Intent intent = null;
+                                Intent intent;
                                 if(nuevo.isAdmin()){
                                     intent=new Intent(getApplicationContext(), Administrador.class);
                                 }else{
@@ -171,19 +179,19 @@ public class Login extends AppCompatActivity {
                         }
                     });
 
-        }
+//        }
     }
 
     public void actualizar(View v){
         registrarse=!registrarse;
         if(registrarse){
-            ((TextInputLayout) findViewById(R.id.et_inicio_contra2G)).setVisibility(View.VISIBLE);
-            ((TextInputLayout) findViewById(R.id.et_inicio_emailG)).setVisibility(View.VISIBLE);
+//            ((TextInputLayout) findViewById(R.id.et_inicio_contra2G)).setVisibility(View.VISIBLE);
+//            ((TextInputLayout) findViewById(R.id.et_inicio_emailG)).setVisibility(View.VISIBLE);
             b_inicio.setText(res.getString(R.string.registrarse));
             ((TextView)v).setText(res.getString(R.string.cambiarIniciar));
         }else{
-            ((TextInputLayout) findViewById(R.id.et_inicio_contra2G)).setVisibility(View.GONE);
-            ((TextInputLayout) findViewById(R.id.et_inicio_emailG)).setVisibility(View.GONE);
+//            ((TextInputLayout) findViewById(R.id.et_inicio_contra2G)).setVisibility(View.GONE);
+//            ((TextInputLayout) findViewById(R.id.et_inicio_emailG)).setVisibility(View.GONE);
             b_inicio.setText(res.getString(R.string.iniciar_sesion));
             ((TextView)v).setText(res.getString(R.string.cambiarRegistrarse));
         }
