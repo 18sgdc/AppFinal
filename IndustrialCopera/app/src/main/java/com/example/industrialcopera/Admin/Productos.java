@@ -1,18 +1,34 @@
 package com.example.industrialcopera.Admin;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.industrialcopera.ActivityUsuario;
+import com.example.industrialcopera.Adaptadores.AdapProductoAdmin;
+import com.example.industrialcopera.Adaptadores.AdapProductoUser;
 import com.example.industrialcopera.Administrador;
 import com.example.industrialcopera.R;
+import com.example.industrialcopera.clases.Producto;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,6 +86,11 @@ public class Productos extends Fragment {
 
     Administrador ma;
 
+    List<Producto> productos;
+    RecyclerView rv;
+    AdapProductoAdmin adaptador;
+    RecyclerView.LayoutManager rvL;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -82,5 +103,49 @@ public class Productos extends Fragment {
                 ma.navController.navigate(R.id.editarProducto);
             }
         });
+
+        rv=(RecyclerView)view.findViewById(R.id.RV_Admin_Productos);
+        productos=new ArrayList<Producto>();
+
+//        rvL=new StaggeredGridLayoutManager(2,1);
+        rvL=new LinearLayoutManager(ma.context);
+        rv.setLayoutManager(rvL);
+        adaptador=new AdapProductoAdmin(ma,productos);
+        rv.setAdapter(adaptador);
+        ma.ref.child("discoteca").child("productos").orderByChild("titulo")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        productos.clear();
+                        for(DataSnapshot hijo:snapshot.getChildren()){
+                            Producto pojo_producto=hijo.getValue(Producto.class);
+                            productos.add(pojo_producto);
+                        }
+
+                        if(productos.isEmpty()){
+                            Toast.makeText(ma.context, "No hay productos", Toast.LENGTH_SHORT).show();
+                            adaptador.notifyDataSetChanged();
+                        }else{
+                            for(final Producto p:productos){
+                                ma.sto.child("discoteca").child("productos")
+                                        .child(p.getId())
+                                        .getDownloadUrl()
+                                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                p.setUrlFoto(uri.toString());
+                                                adaptador.notifyDataSetChanged();
+                                            }
+                                        });
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
     }
 }

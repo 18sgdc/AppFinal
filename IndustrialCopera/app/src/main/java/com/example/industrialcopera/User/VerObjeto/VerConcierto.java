@@ -1,5 +1,7 @@
-package com.example.industrialcopera.Admin;
+package com.example.industrialcopera.User.VerObjeto;
 
+import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,16 +11,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.example.industrialcopera.Administrador;
+import com.bumptech.glide.Glide;
+import com.example.industrialcopera.ActivityUsuario;
 import com.example.industrialcopera.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Noticias#newInstance} factory method to
+ * Use the {@link VerConcierto#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Noticias extends Fragment {
+public class VerConcierto extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +35,7 @@ public class Noticias extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Noticias() {
+    public VerConcierto() {
         // Required empty public constructor
     }
 
@@ -39,11 +45,11 @@ public class Noticias extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Noticias.
+     * @return A new instance of fragment VerConcierto.
      */
     // TODO: Rename and change types and number of parameters
-    public static Noticias newInstance(String param1, String param2) {
-        Noticias fragment = new Noticias();
+    public static VerConcierto newInstance(String param1, String param2) {
+        VerConcierto fragment = new VerConcierto();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,22 +70,32 @@ public class Noticias extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_noticias, container, false);
+        return inflater.inflate(R.layout.fragment_ver_concierto, container, false);
     }
 
-    Administrador ma;
+    ActivityUsuario ma;
+    TextView artista,fecha,hora,precio;
+    ImageView imagen;
+    Button b;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ma=(Administrador)getActivity();
-        ma.fab.show();
-        ma.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ma.navController.navigate(R.id.editarNoticia);
-            }
-        });
+        ma=(ActivityUsuario)getActivity();
+        artista=(TextView)view.findViewById(R.id.TV_VC_Artista);
+        fecha=(TextView)view.findViewById(R.id.TV_VC_Fecha);
+        hora=(TextView)view.findViewById(R.id.TV_VC_Hora);
+        precio=(TextView)view.findViewById(R.id.TV_VC_Precio);
+        imagen=(ImageView)view.findViewById(R.id.IV_VC_Foto);
+        b=(Button)view.findViewById(R.id.B_VC_Comprar);
+
+        artista.setText(ma.concierto.getArtista());
+        fecha.setText(ma.concierto.getFecha());
+        hora.setText(ma.concierto.getHora());
+        precio.setText(ma.concierto.getPrecio()+"€");
+        Glide.with(ma.context)
+                .load(Uri.parse(ma.concierto.getIdFotos()))
+                .into(imagen);
 
     }
 }

@@ -84,6 +84,7 @@ public class EditarConcierto extends Fragment {
         return inflater.inflate(R.layout.fragment_editar_concierto, container, false);
     }
 
+    Boolean editar=false;
     EditText et_artista,et_fecha,et_hora,et_precio,et_aforo;
     String artista,descripcion,fecha,hora;
     Double precio;
@@ -109,7 +110,25 @@ public class EditarConcierto extends Fragment {
         et_aforo=(EditText)view.findViewById(R.id.TI_E_Co_Aforo);
         iv_foto=(ImageView)view.findViewById(R.id.IV_E_Co_Anadir);
         button=(Button)view.findViewById(R.id.B_E_Concierto);
+        if(!ma.concierto.getArtista().equals("")){
+            editar=true;
+            et_artista.setText(ma.concierto.getArtista());
+//        FECHA Y HORA
+            et_fecha.setText(ma.concierto.getFecha());
+            et_hora.setText(ma.concierto.getHora());
+//        FECHA Y HORA
+            et_precio.setText(ma.concierto.getPrecio()+"");
+            et_aforo.setText(ma.concierto.getAforo()+"");
+            button.setText("Actualizar");
+        }
 
+        et_fecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ma, "Calendario", Toast.LENGTH_SHORT).show();
+                ma.mostrarCalendario();
+            }
+        });
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -165,17 +184,31 @@ public class EditarConcierto extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             boolean correcto=true;
-                            if(snapshot.hasChildren()){
-                                correcto=false;
-//                           COMPORBAR FECHA  (SOLO FECHA PARA QUE NO HAYA 2 DEL MISMO EL MISMO DIA)
-//                                for(DataSnapshot hijo:snapshot.getChildren()){
-//                                    Concierto pojo_producto=hijo.getValue(Concierto.class);
-//                                    if(pojo_evento.getFecha().equals(fechaBien)){
-//                                        correcto=false;
-//                                    }
-//                                }
+                            if (!(editar&&ma.concierto.getArtista().equals(artista)
+                                    &&ma.concierto.getFecha().equals(fecha))){
+                                if(snapshot.hasChildren()){
+    //                           COMPORBAR FECHA  (SOLO FECHA PARA QUE NO HAYA 2 DEL MISMO EL MISMO DIA)
+                                    // TODO: 03/05/2021 hacer bien
+                                    for(DataSnapshot hijo:snapshot.getChildren()){
+                                        Concierto pojo_producto=hijo.getValue(Concierto.class);
+                                        if(fecha.equals(pojo_producto.getFecha())){
+                                            correcto=false;
+                                        }
+                                    }
+                                }
                             }
-                            if(correcto){
+                            if(correcto&&editar){
+                                Concierto nuevo=new Concierto(artista,fecha,hora,descripcion,precio,ma.concierto.getVendidas(),aforo);
+                                nuevo.setId(ma.concierto.getId());
+                                ma.ref.child("discoteca").child("concierto").child(ma.concierto.getId()).setValue(nuevo);
+                                if(foto_url!=null){
+                                    ma.sto.child("tienda").child("eventos").child(ma.concierto.getId()).putFile(foto_url);
+                                }
+                                Toast.makeText(ma.context, "Concierto actualizado con exito", Toast.LENGTH_SHORT).show();
+                                ma.concierto=new Concierto();
+                                ma.navController.navigate(R.id.conciertos);
+
+                            }else if(correcto){
                                 Concierto nuevo=new Concierto(artista,fecha,hora,descripcion,precio,0,aforo);
                                 String id=ma.ref.child("discoteca").child("concierto").push().getKey();
                                 nuevo.setId(id);

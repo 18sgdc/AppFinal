@@ -2,6 +2,7 @@ package com.example.industrialcopera.User;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,10 +25,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.industrialcopera.ActivityUsuario;
+import com.example.industrialcopera.Login;
 import com.example.industrialcopera.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,7 +90,7 @@ public class Perfil extends Fragment {
     TextView tv_nombre,tv_correo,tv_direccion;
     ImageView iv_editar,iv_cancelar,iv_foto,iv_eliminar;
     EditText et_nombre,et_correo,et_contra1,et_contra2,et_direccion;
-    Button b_actualizar;
+    Button b_actualizar, b_salir;
     ConstraintLayout cl_ver,cl_editar;
     Uri foto_url;
     private final static int SELECCIONAR_FOTO=1;
@@ -98,6 +101,13 @@ public class Perfil extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ma=(ActivityUsuario)getActivity();
+        b_salir=(Button)view.findViewById(R.id.B_Salir_User);
+        b_salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                salir();
+            }
+        });
 
         tv_nombre=(TextView)view.findViewById(R.id.TV_Nombre);
         tv_correo=(TextView)view.findViewById(R.id.TV_Correo);
@@ -221,4 +231,19 @@ public class Perfil extends Fragment {
         }
     }
 
+
+    public void salir (){
+        SharedPreferences sp;
+        SharedPreferences.Editor spE;
+
+        sp=getContext().getSharedPreferences("discoteca",MODE_PRIVATE);
+        spE=sp.edit();
+
+        spE.putString("KEY","");
+        spE.putString("USER","");
+        spE.putBoolean("ADMIN",false);
+        spE.commit();
+        Intent intent=new Intent(getContext(), Login.class);
+        startActivity(intent);
+    }
 }

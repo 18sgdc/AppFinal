@@ -19,14 +19,12 @@
         <activity
             android:name=".Administrador"
             android:label="@string/title_activity_administrador"
-            android:theme="@style/BaseStyle"/>
+            android:theme="@style/BaseStyle" />
         <activity
             android:name=".ActivityUsuario"
             android:label="@string/title_activity_usuario"
             android:theme="@style/BaseStyle" />
-
-        <activity android:name=".Login">
-        </activity>
+        <activity android:name=".Login"></activity>
     </application>
 
 </manifest>

@@ -159,7 +159,7 @@ public class Login extends AppCompatActivity {
 
                                 sto.child("discoteca").child("usuarios").child(id).putFile(foto_url);
 
-                                spE.putString("KEY",nuevo.getId());
+                                spE.putString("KEY",id);
                                 spE.putString("USER",nuevo.getNombre());
                                 spE.putBoolean("ADMIN",nuevo.isAdmin());
                                 spE.commit();

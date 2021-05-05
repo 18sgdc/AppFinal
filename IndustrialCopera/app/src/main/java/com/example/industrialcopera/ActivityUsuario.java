@@ -11,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.industrialcopera.clases.Concierto;
+import com.example.industrialcopera.clases.Cupon;
+import com.example.industrialcopera.clases.Noticia;
+import com.example.industrialcopera.clases.Producto;
 import com.example.industrialcopera.clases.Usuario;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,13 +42,17 @@ public class ActivityUsuario extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     public NavController navController;
-    public FloatingActionButton fab;
+//    public FloatingActionButton fab;
     public Context context;
     public DatabaseReference ref;
     public StorageReference sto;
     SharedPreferences sp;
     SharedPreferences.Editor spE;
     public Usuario usuarioActual;
+    public Concierto concierto;
+    public Noticia noticia;
+    public Producto producto;
+    public Cupon cupon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +60,15 @@ public class ActivityUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_usuario);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fab = findViewById(R.id.fab);
+//        fab = findViewById(R.id.fab);
         context=getApplicationContext();
         ref= FirebaseDatabase.getInstance().getReference();
         sto= FirebaseStorage.getInstance().getReference();
         iniciado();
+        concierto=new Concierto();
+        noticia=new Noticia();
+        producto=new Producto();
+        cupon=new Cupon();
 
 
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +84,7 @@ public class ActivityUsuario extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
 //                R.id.main,
-                R.id.nav_home,R.id.noticias,R.id.conciertos,R.id.productos,R.id.cupones,R.id.perfil)
+                R.id.copera,R.id.noticiasUser,R.id.conciertosUser,R.id.productosUser,R.id.cuponesUser,R.id.perfil)
 //                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
                 .build();
@@ -82,7 +94,7 @@ public class ActivityUsuario extends AppCompatActivity {
 //----------------------------------------------------------------------------------
 //        PUEDE SER QUE HAYA QUE PONERLO EN EL CREATE OPTIONS MENU
 //----------------------------------------------------------------------------------
-        ref.child("discoteca").child("usuarios").orderByKey().equalTo("-MXdOAGThWzSxNPLT6Yf")
+        ref.child("discoteca").child("usuarios").orderByKey().equalTo(sp.getString("KEY",""))
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -188,7 +200,7 @@ public class ActivityUsuario extends AppCompatActivity {
         startActivity(intent);
     }
     public void iniciado(){
-        sp=getSharedPreferences("user",MODE_PRIVATE);
+        sp=getSharedPreferences("discoteca",MODE_PRIVATE);
         spE=sp.edit();
 //        if(!sp.getString("KEY","").equals("")){
 //            if(sp.getBoolean("ADMIN",false)){

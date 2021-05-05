@@ -5,7 +5,9 @@
     android:id="@+id/frameLayout13"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Calendario">
+    tools:context=".General.Calendario">
+
+    <!-- TODO: Update blank fragment layout -->
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -13,4 +15,5 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

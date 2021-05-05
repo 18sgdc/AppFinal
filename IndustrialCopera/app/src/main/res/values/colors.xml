@@ -2,19 +2,22 @@
 <resources>
     <color name="colorPrimary">#1E1E1E</color>
 <!--    Barra superior Grande-->
-    <color name="colorAccent">#ffff00</color>
 
 
     <color name="colorPrimaryDark">#1E1E1E</color>
 <!--    Barra superior superior-->
 
-    <color name="fondoClaro">#3C3C3C</color>
+    <color name="fondoClaroTransparente">#CC464646</color>
+    <color name="fondoClaro">#464646</color>
     <color name="fondo">#1E1E1E</color>
     <color name="fondoOscuro">#000000</color>
     <color name="letra">#f1f1f1</color>
     <color name="letra2">#B4B4B4</color>
-    <color name="color">#ffff00</color>
-    <color name="hint_foreground_material_color">#ffff00</color>
+    <color name="color2">#c9ff8d</color>
+<!--    esos tres amarillos-->
+    <color name="color">#c9ff8d</color>
+    <color name="colorAccent">#c9ff8d</color>
+    <color name="hint_foreground_material_color">#c9ff8d</color>
     <color name="prueba">#B030E6</color>
     <color name="prueba2">#00FFD9</color>
 </resources>

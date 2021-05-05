@@ -3,7 +3,6 @@ package com.example.industrialcopera;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,13 +12,18 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.industrialcopera.General.Calendario;
+import com.example.industrialcopera.clases.Concierto;
+import com.example.industrialcopera.clases.Cupon;
+import com.example.industrialcopera.clases.Noticia;
+import com.example.industrialcopera.clases.Producto;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 
 public class Administrador extends AppCompatActivity {
 
@@ -30,6 +34,10 @@ public class Administrador extends AppCompatActivity {
     public Context context;
     public DatabaseReference ref;
     public StorageReference sto;
+    public Concierto concierto;
+    public Noticia noticia;
+    public Producto producto;
+    public Cupon cupon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +49,10 @@ public class Administrador extends AppCompatActivity {
         context=getApplicationContext();
         ref= FirebaseDatabase.getInstance().getReference();
         sto= FirebaseStorage.getInstance().getReference();
-
+        concierto=new Concierto();
+        noticia=new Noticia();
+        producto=new Producto();
+        cupon=new Cupon();
 
 
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -79,11 +90,11 @@ public class Administrador extends AppCompatActivity {
     }
 
 
-//    public void mostrarCalendario(){
-//        Calendario add=new Calendario();
-//        add.show(getSupportFragmentManager(), "Add");
-    // TODO: 21/04/2021 Calendario 
-//    }
+
+    public void mostrarCalendario(){
+        Calendario add=new Calendario();
+        add.show(getSupportFragmentManager(), "Add");
+    }
 
     @Override
     public void onBackPressed() {

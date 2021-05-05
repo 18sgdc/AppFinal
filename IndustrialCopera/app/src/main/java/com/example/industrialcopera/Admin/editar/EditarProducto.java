@@ -84,6 +84,7 @@ public class EditarProducto extends Fragment {
         return inflater.inflate(R.layout.fragment_editar_producto, container, false);
     }
 
+    Boolean editar;
     EditText et_titulo,et_descripcion,et_precio,et_stock;
     String titulo,descripcion;
     Double precio;
@@ -106,6 +107,15 @@ public class EditarProducto extends Fragment {
         et_stock=(EditText)view.findViewById(R.id.TI_E_Pr_Stock);
         iv_foto=(ImageView)view.findViewById(R.id.IV_E_pr_Anadir);
         button=(Button)view.findViewById(R.id.B_E_Producto);
+
+        if(!ma.producto.getNombre().equals("")){
+            editar=true;
+            et_titulo.setText(ma.producto.getNombre());
+            et_descripcion.setText(ma.producto.getDescripcion());
+            et_precio.setText(ma.producto.getPrecio()+"");
+            et_stock.setText(ma.producto.getStock()+"");
+            button.setText("Actualizar");
+        }
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -158,7 +168,8 @@ public class EditarProducto extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             boolean correcto=true;
-                            if(snapshot.hasChildren()){
+                            if(snapshot.hasChildren()&&!(titulo.equals(ma.producto.getNombre())&&editar)){
+                                correcto=false;
 //                                for(DataSnapshot hijo:snapshot.getChildren()){
 //                                    Producto pojo_producto=hijo.getValue(Producto.class);
 //                                    if(pojo_evento.getFecha().equals(fechaBien)){
@@ -170,8 +181,8 @@ public class EditarProducto extends Fragment {
                                 Producto nuevo=new Producto(titulo,descripcion,precio,stock);
                                 String id=ma.ref.child("discoteca").child("productos").push().getKey();
                                 nuevo.setId(id);
-                                ma.ref.child("discoteca").child("productos").child(id).setValue(nuevo);
                                 ma.sto.child("discoteca").child("productos").child(id).putFile(foto_url);
+                                ma.ref.child("discoteca").child("productos").child(id).setValue(nuevo);
                                 Toast.makeText(ma.context, "Producto añadido con exito", Toast.LENGTH_SHORT).show();
 //                                NavController navController = Navigation.findNavController(ma, R.id.nav_host_fragment_admin);
                                 ma.navController.navigate(R.id.productos);

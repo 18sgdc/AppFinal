@@ -3,28 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/copera">
 
-    <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.industrialcopera.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.industrialcopera.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.industrialcopera.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/perfil"
         android:name="com.example.industrialcopera.User.Perfil"
         android:label="fragment_perfil"
         tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/conciertosUser"
+        android:name="com.example.industrialcopera.User.ConciertosUser"
+        android:label="fragment_conciertos_user"
+        tools:layout="@layout/fragment_conciertos_user" />
+    <fragment
+        android:id="@+id/productosUser"
+        android:name="com.example.industrialcopera.User.ProductosUser"
+        android:label="fragment_productos_user"
+        tools:layout="@layout/fragment_productos_user" />
+    <fragment
+        android:id="@+id/cuponesUser"
+        android:name="com.example.industrialcopera.User.CuponesUser"
+        android:label="fragment_cupones_user"
+        tools:layout="@layout/fragment_cupones_user" />
+    <fragment
+        android:id="@+id/verConcierto"
+        android:name="com.example.industrialcopera.User.VerObjeto.VerConcierto"
+        android:label="fragment_ver_concierto"
+        tools:layout="@layout/fragment_ver_concierto" />
+    <fragment
+        android:id="@+id/verProducto"
+        android:name="com.example.industrialcopera.User.VerObjeto.VerProducto"
+        android:label="fragment_ver_producto"
+        tools:layout="@layout/fragment_ver_producto" />
+    <fragment
+        android:id="@+id/verNoticia"
+        android:name="com.example.industrialcopera.User.VerObjeto.VerNoticia"
+        android:label="fragment_ver_noticia"
+        tools:layout="@layout/fragment_ver_noticia" />
+    <fragment
+        android:id="@+id/copera"
+        android:name="com.example.industrialcopera.Copera"
+        android:label="fragment_copera"
+        tools:layout="@layout/fragment_copera" />
+    <fragment
+        android:id="@+id/noticiasUser"
+        android:name="com.example.industrialcopera.NoticiasUser"
+        android:label="fragment_noticias_user"
+        tools:layout="@layout/fragment_noticias_user" />
 </navigation>
