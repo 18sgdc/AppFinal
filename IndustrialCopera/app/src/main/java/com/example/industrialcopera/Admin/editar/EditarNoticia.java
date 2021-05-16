@@ -1,14 +1,34 @@
 package com.example.industrialcopera.Admin.editar;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.industrialcopera.Administrador;
 import com.example.industrialcopera.R;
+import com.example.industrialcopera.clases.Producto;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,5 +82,131 @@ public class EditarNoticia extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_editar_noticia, container, false);
+    }
+
+    EditText et_titulo,et_descripcion,et_fecha;
+    TextView tv_titulo;
+    String titulo,descripcion,fecha;
+    int stock, tipoNoticia;
+    ImageView iv_foto;
+    Button button;
+    Administrador ma;
+    Uri foto_url;
+    private final static int SELECCIONAR_FOTO=1;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ma=(Administrador)getActivity();
+        ma.fab.hide();
+
+        et_titulo=(EditText)view.findViewById(R.id.TI_E_No_Titulo);
+        et_descripcion=(EditText)view.findViewById(R.id.TI_E_No_Descripcion);
+        et_fecha=(EditText)view.findViewById(R.id.TI_E_No_Fecha);
+        tv_titulo=(TextView) view.findViewById(R.id.TV_E_No_Titulo);
+        iv_foto=(ImageView)view.findViewById(R.id.IV_E_pr_Anadir);
+        button=(Button)view.findViewById(R.id.B_E_Producto);
+
+        if(!ma.producto.getNombre().equals("")){
+            tipoNoticia=1;
+            iv_foto.setVisibility(View.GONE);
+            tv_titulo.setText("Crear noticia sobre el producto: "+ma.producto.getNombre());
+//            et_descripcion.setText(ma.producto.getDescripcion());
+//            et_precio.setText(ma.producto.getPrecio()+"");
+//            et_stock.setText(ma.producto.getStock()+"");
+//            button.setText("Actualizar");
+        }else if(!ma.concierto.getArtista().equals("")){
+            tipoNoticia=2;
+            iv_foto.setVisibility(View.GONE);
+            tv_titulo.setText("Crear noticia sobre el concierto de: "+ma.concierto.getArtista());
+//            et_descripcion.setText(ma.producto.getDescripcion());
+//            et_precio.setText(ma.producto.getPrecio()+"");
+//            et_stock.setText(ma.producto.getStock()+"");
+//            button.setText("Actualizar");
+        }else{
+            tipoNoticia=0;
+            tv_titulo.setVisibility(View.GONE);
+        }
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                enviar();
+            }
+        });
+        iv_foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                seleccionarFoto();
+            }
+        });
+
+    }
+    public void seleccionarFoto(){
+        if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA},1000);
+        }
+        Intent i = new Intent (Intent.ACTION_PICK);
+        i.setType("image/*");
+        startActivityForResult(i, SELECCIONAR_FOTO);
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if(resultCode==RESULT_OK&&requestCode==SELECCIONAR_FOTO){
+            foto_url=data.getData();
+            iv_foto.setImageURI(foto_url);
+            Toast.makeText(ma.context,"Imagen importada con exito",Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(ma.context,"Imagen NO importada",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void enviar(){
+        titulo=et_titulo.getText().toString();
+        descripcion=et_descripcion.getText().toString();
+        fecha=et_fecha.getText().toString();
+
+        if(foto_url==null){
+            Toast.makeText(ma.context, "Tiene que seleccionar una imagen", Toast.LENGTH_SHORT).show();
+        }else
+//            if(comprobar()) //Taqmbier comprobar valor unico
+        {
+            ma.ref.child("concierto").child("productos").orderByChild("titulo").equalTo(titulo)
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            boolean correcto=true;
+//                            if(snapshot.hasChildren()&&!(titulo.equals(ma.producto.getNombre())&&editar)){
+//                                correcto=false;
+////                                for(DataSnapshot hijo:snapshot.getChildren()){
+////                                    Producto pojo_producto=hijo.getValue(Producto.class);
+////                                    if(pojo_evento.getFecha().equals(fechaBien)){
+////                                        correcto=false;
+////                                    }
+////                                }
+//                            }
+//                            if(correcto){
+//                                Producto nuevo=new Producto(titulo,descripcion,precio,stock);
+//                                String id=ma.ref.child("discoteca").child("productos").push().getKey();
+//                                nuevo.setId(id);
+//                                ma.sto.child("discoteca").child("productos").child(id).putFile(foto_url);
+//                                ma.ref.child("discoteca").child("productos").child(id).setValue(nuevo);
+//                                Toast.makeText(ma.context, "Producto añadido con exito", Toast.LENGTH_SHORT).show();
+////                                NavController navController = Navigation.findNavController(ma, R.id.nav_host_fragment_admin);
+//                                ma.navController.navigate(R.id.productos);
+//                            }else{
+////                                et_nombre.setError(res.getString(R.string.error_evento_repetidos));
+//                            }
+                            // TODO: 08/05/2021 Completar 
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+        }
     }
 }

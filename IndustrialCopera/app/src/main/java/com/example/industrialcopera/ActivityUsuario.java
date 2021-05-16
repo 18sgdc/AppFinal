@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.industrialcopera.General.Calendario;
+import com.example.industrialcopera.User.Dialog.DialogComprarConcierto;
+import com.example.industrialcopera.User.Dialog.DialogComprarProducto;
 import com.example.industrialcopera.clases.Concierto;
 import com.example.industrialcopera.clases.Cupon;
 import com.example.industrialcopera.clases.Noticia;
@@ -53,6 +56,7 @@ public class ActivityUsuario extends AppCompatActivity {
     public Noticia noticia;
     public Producto producto;
     public Cupon cupon;
+    public String idCliente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +98,7 @@ public class ActivityUsuario extends AppCompatActivity {
 //----------------------------------------------------------------------------------
 //        PUEDE SER QUE HAYA QUE PONERLO EN EL CREATE OPTIONS MENU
 //----------------------------------------------------------------------------------
-        ref.child("discoteca").child("usuarios").orderByKey().equalTo(sp.getString("KEY",""))
+        ref.child("discoteca").child("usuarios").orderByKey().equalTo(idCliente)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -202,6 +206,7 @@ public class ActivityUsuario extends AppCompatActivity {
     public void iniciado(){
         sp=getSharedPreferences("discoteca",MODE_PRIVATE);
         spE=sp.edit();
+        idCliente=sp.getString("KEY","");
 //        if(!sp.getString("KEY","").equals("")){
 //            if(sp.getBoolean("ADMIN",false)){
 //                Intent intent=new Intent(getApplicationContext(), Administrador.class);
@@ -211,5 +216,16 @@ public class ActivityUsuario extends AppCompatActivity {
 //            Intent intent=new Intent(getApplicationContext(), Login.class);
 //            startActivity(intent);
 //        }
+    }
+
+    public void comprarConcierto(){
+        DialogComprarConcierto add=new DialogComprarConcierto();
+        add.show(getSupportFragmentManager(), "Add");
+    }
+
+
+    public void comprarProducto(){
+        DialogComprarProducto add=new DialogComprarProducto();
+        add.show(getSupportFragmentManager(), "Add");
     }
 }

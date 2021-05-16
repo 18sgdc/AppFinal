@@ -16,6 +16,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+
+<!--    <style name="Dialogo" parent="Dialog"-->
+
     <style name="BaseStyle" parent="@style/AppTheme.NoActionBar">
         <item name="android:colorBackground">@color/fondo</item>
 
@@ -34,6 +37,7 @@
 
 
 <!--        Parte de pruebasss      -->
+
 
 <!--        <item name="actionBarItemBackground">@color/prueba2</item>-->
 

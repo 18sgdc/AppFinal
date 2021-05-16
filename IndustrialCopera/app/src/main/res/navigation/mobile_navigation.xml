@@ -42,12 +42,37 @@
         tools:layout="@layout/fragment_ver_noticia" />
     <fragment
         android:id="@+id/copera"
-        android:name="com.example.industrialcopera.Copera"
+        android:name="com.example.industrialcopera.User.Copera"
         android:label="fragment_copera"
         tools:layout="@layout/fragment_copera" />
     <fragment
         android:id="@+id/noticiasUser"
-        android:name="com.example.industrialcopera.NoticiasUser"
+        android:name="com.example.industrialcopera.User.NoticiasUser"
         android:label="fragment_noticias_user"
         tools:layout="@layout/fragment_noticias_user" />
+    <fragment
+        android:id="@+id/dialogComprarConcierto"
+        android:name="com.example.industrialcopera.User.Dialog.DialogComprarConcierto"
+        android:label="fragment_dialog_comprar_concierto"
+        tools:layout="@layout/fragment_dialog_comprar_concierto" />
+    <fragment
+        android:id="@+id/dialogComprarProducto"
+        android:name="com.example.industrialcopera.User.Dialog.DialogComprarProducto"
+        android:label="fragment_dialog_comprar_producto"
+        tools:layout="@layout/fragment_dialog_comprar_producto" />
+    <fragment
+        android:id="@+id/cestaCompra"
+        android:name="com.example.industrialcopera.User.CestaCompra"
+        android:label="fragment_cesta_compra"
+        tools:layout="@layout/fragment_cesta_compra" />
+    <fragment
+        android:id="@+id/misEntradas"
+        android:name="com.example.industrialcopera.MisEntradas"
+        android:label="fragment_mis_entradas"
+        tools:layout="@layout/fragment_mis_entradas" />
+    <fragment
+        android:id="@+id/misCompras"
+        android:name="com.example.industrialcopera.MisCompras"
+        android:label="fragment_mis_compras"
+        tools:layout="@layout/fragment_mis_compras" />
 </navigation>

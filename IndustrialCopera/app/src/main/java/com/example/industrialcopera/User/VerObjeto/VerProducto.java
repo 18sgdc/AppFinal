@@ -14,10 +14,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.industrialcopera.ActivityUsuario;
 import com.example.industrialcopera.R;
+import com.example.industrialcopera.clases.VentaConcierto;
+import com.example.industrialcopera.clases.VentaProducto;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,7 +82,8 @@ public class VerProducto extends Fragment {
     ActivityUsuario ma;
     ImageView imagen;
     TextView nombre, precio;
-    EditText cantidad;
+    EditText et_cantidad;
+    int cantidad;
     Button b;
 
     @Override
@@ -85,7 +92,7 @@ public class VerProducto extends Fragment {
         ma=(ActivityUsuario)getActivity();
         nombre=(TextView)view.findViewById(R.id.TV_VP_Nombre);
         precio=(TextView)view.findViewById(R.id.TV_VP_Precio);
-        cantidad=(EditText) view.findViewById(R.id.TI_VP_Cantidad);
+        et_cantidad=(EditText) view.findViewById(R.id.TI_VP_Cantidad);
         imagen=(ImageView)view.findViewById(R.id.IV_VP_Foto);
         b=(Button)view.findViewById(R.id.B_VP_Comprar);
 
@@ -95,6 +102,26 @@ public class VerProducto extends Fragment {
         Glide.with(ma.context)
                 .load(Uri.parse(ma.producto.getUrlFoto()))
                 .into(imagen);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comprar();
+            }
+        });
 
+    }
+    public void comprar(){
+        ma.comprarProducto();
+//        cantidad=Integer.parseInt(et_cantidad.getText().toString());
+//        Date seleccionada = new Date();
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//        String hoy= sdf.format(seleccionada);
+//
+//        VentaProducto nuevo=new VentaProducto(ma.concierto.getId(),"idusuario",hoy,ma.concierto.getPrecio(),ma.concierto.getPrecio(),cantidad);
+//        String id=ma.ref.child("discoteca").child("ventas_productos").push().getKey();
+//        nuevo.setId(id);
+//        ma.ref.child("discoteca").child("ventas_productos").child(id).setValue(nuevo);
+//        Toast.makeText(ma.context, "Productos comprados con exito", Toast.LENGTH_SHORT).show();
+//        ma.navController.navigate(R.id.productos);
     }
 }

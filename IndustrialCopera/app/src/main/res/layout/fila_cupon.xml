@@ -58,7 +58,15 @@
         android:layout_marginTop="48dp"
         android:text="Por una compra superior a 10€"
         android:textColor="@color/letra2"
-        app:layout_constraintEnd_toEndOf="@+id/TV_VFU_Cupon_Precio"
+        app:layout_constraintStart_toStartOf="@+id/TV_VFU_Cupon_Tipo"
         app:layout_constraintTop_toBottomOf="@+id/TV_VFU_Cupon_Valor" />
+
+    <Button
+        android:id="@+id/B_VFU_Cupon_Comprar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comprar"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_VFU_Cupon_Min"
+        app:layout_constraintEnd_toEndOf="@+id/TV_VFU_Cupon_Precio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout19"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Copera" >
+    tools:context=".User.Copera" >
 
     <ScrollView
         android:layout_width="0dp"
@@ -32,7 +32,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="16dp"
-                    android:text="Desde 1992, Industrial Copera ha sido un referente en el circuito de salas de conciertos y fiestas de electrónica de toda la península.  En 2014, estrena nueva localización en La Zubia, Granada, en un espectacular local donde prima la profesionalidad, comodidad, y el mismo espíritu innovador que en los comienzos."
+                    android:text="Desde 1992, Industrial Copera ha sido un referente en el circuito de salas de conciertos y fiestas de electrónica de toda la península.\nEn 2014, estrena nueva localización en La Zubia, Granada, en un espectacular local donde prima la profesionalidad, comodidad, y el mismo espíritu innovador que en los comienzos."
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -45,12 +45,32 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
-                    android:layout_marginEnd="64dp"
                     android:text="Industrial Copera"
+                    android:textColor="#ffffff"
                     android:textSize="44sp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/logo_copera_blanco"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                    app:layout_constraintEnd_toEndOf="@+id/textView7"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/textView11"
+                    app:layout_constraintTop_toTopOf="@+id/textView11"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,8 +93,27 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginBottom="64dp"
+                    android:text="Ventajas de la App:\n --> Consigue puntos y sube de nivel \n-->Consigue cupones exclusivos \n-->Mantente siempre al dia"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#9C27B0">
+                android:background="@color/sponsor">
 
                 <ImageView
                     android:id="@+id/imageView6"

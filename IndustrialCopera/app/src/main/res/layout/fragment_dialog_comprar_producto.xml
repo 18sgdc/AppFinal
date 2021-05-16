@@ -1,14 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DialogComprarProducto">
+    android:id="@+id/frameLayout23"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/fondo"
+    tools:context=".User.Dialog.DialogComprarProducto">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/TV_DP_Titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/B_DP_Menos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="-"
+        app:layout_constraintEnd_toStartOf="@+id/TV_DP_Cantidad"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_DP_Titulo" />
+
+    <TextView
+        android:id="@+id/TV_DP_Cantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="1"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/B_DP_Menos"
+        app:layout_constraintEnd_toStartOf="@+id/B_DP_Mas"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/B_DP_Menos"
+        app:layout_constraintTop_toTopOf="@+id/B_DP_Menos" />
+
+    <Button
+        android:id="@+id/B_DP_Mas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_DP_Cantidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/TV_DP_Cantidad"
+        app:layout_constraintTop_toTopOf="@+id/TV_DP_Cantidad" />
+
+    <TextView
+        android:id="@+id/TV_DP_Cupon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Cupones disponibles:"
+        app:layout_constraintStart_toStartOf="@+id/B_DP_Menos"
+        app:layout_constraintTop_toBottomOf="@+id/TV_DP_Cantidad" />
+
+    <Spinner
+        android:id="@+id/S_DP_Cupon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/B_DP_Mas"
+        app:layout_constraintStart_toStartOf="@+id/B_DP_Menos"
+        app:layout_constraintTop_toBottomOf="@+id/TV_DP_Cupon" />
+
+    <TextView
+        android:id="@+id/TV_DP_Titulo_PrecioO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Precio:"
+        app:layout_constraintStart_toStartOf="@+id/B_DP_Menos"
+        app:layout_constraintTop_toBottomOf="@+id/S_DP_Cupon" />
+
+    <TextView
+        android:id="@+id/TV_DP_PrecioO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/B_DP_Mas"
+        app:layout_constraintTop_toTopOf="@+id/TV_DP_Titulo_PrecioO" />
+
+    <TextView
+        android:id="@+id/TV_DP_Titulo_PrecioC"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Precio aplicando los cupones"
+        app:layout_constraintEnd_toStartOf="@+id/TV_DP_PrecioC"
+        app:layout_constraintStart_toStartOf="@+id/TV_DP_Titulo_PrecioO"
+        app:layout_constraintTop_toBottomOf="@+id/TV_DP_Titulo_PrecioO" />
+
+    <TextView
+        android:id="@+id/TV_DP_PrecioC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/TV_DP_Titulo_PrecioC"
+        app:layout_constraintEnd_toEndOf="@+id/TV_DP_PrecioO"
+        app:layout_constraintTop_toTopOf="@+id/TV_DP_Titulo_PrecioC" />
+
+    <Button
+        android:id="@+id/B_DP_Comprar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Comprar producto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/B_DP_Carrito"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_DP_Titulo_PrecioC" />
+
+    <Button
+        android:id="@+id/B_DP_Carrito"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Añadir al carrito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/B_DP_Comprar"
+        app:layout_constraintTop_toTopOf="@+id/B_DP_Comprar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

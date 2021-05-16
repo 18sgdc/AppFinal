@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.industrialcopera.ActivityUsuario;
 import com.example.industrialcopera.R;
 import com.example.industrialcopera.clases.Cupon;
+import com.example.industrialcopera.clases.CuponComprado;
 
 import java.util.List;
 
@@ -63,6 +65,16 @@ public class AdapCuponUser extends RecyclerView.Adapter<AdapCuponUser.Vh> {
         }else{
             holder.minimo.setVisibility(View.GONE);
         }
+        holder.b_comprar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 16/05/2021 Completar bien con los puntos
+                CuponComprado nuevo=new CuponComprado(c.getId(),ma.idCliente,c.isConcierto(),c.isPorcentaje(),c.getValor(),c.getMin());
+                String id=ma.ref.child("discoteca").child("cupones_comprados").push().getKey();
+                nuevo.setId(id);
+                ma.ref.child("discoteca").child("cupones_comprados").child(id).setValue(nuevo);
+            }
+        });
 
 
 //        holder.b_info.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +111,7 @@ public class AdapCuponUser extends RecyclerView.Adapter<AdapCuponUser.Vh> {
 
     public class Vh extends RecyclerView.ViewHolder {
         TextView tipo, precio, valor,minimo;
-//        Button b_info,b_edit;
+        Button b_comprar;
         ImageView fondo;
 //        CardView carta;
 
@@ -109,6 +121,7 @@ public class AdapCuponUser extends RecyclerView.Adapter<AdapCuponUser.Vh> {
             precio = (TextView) itemView.findViewById(R.id.TV_VFU_Cupon_Precio);
             valor = (TextView) itemView.findViewById(R.id.TV_VFU_Cupon_Valor);
             minimo = (TextView) itemView.findViewById(R.id.TV_VFU_Cupon_Min);
+            b_comprar=(Button)itemView.findViewById(R.id.B_VFU_Cupon_Comprar);
 
         }
     }

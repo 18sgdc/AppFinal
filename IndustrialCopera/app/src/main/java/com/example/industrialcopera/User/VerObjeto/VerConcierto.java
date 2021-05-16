@@ -14,10 +14,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.industrialcopera.ActivityUsuario;
 import com.example.industrialcopera.R;
+import com.example.industrialcopera.clases.VentaConcierto;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -97,5 +105,24 @@ public class VerConcierto extends Fragment {
                 .load(Uri.parse(ma.concierto.getIdFotos()))
                 .into(imagen);
 
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comprar();
+            }
+        });
+
+    }
+    public void comprar(){
+        Date seleccionada = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String hoy= sdf.format(seleccionada);
+
+        VentaConcierto nuevo=new VentaConcierto(ma.concierto.getId(),"idusuario",hoy,ma.concierto.getPrecio(),ma.concierto.getPrecio());
+        String id=ma.ref.child("discoteca").child("ventas_conciertos").push().getKey();
+        nuevo.setId(id);
+        ma.ref.child("discoteca").child("ventas_conciertos").child(id).setValue(nuevo);
+        Toast.makeText(ma.context, "Entradas compradas con exito", Toast.LENGTH_SHORT).show();
+        ma.navController.navigate(R.id.productos);
     }
 }
